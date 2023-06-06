@@ -15,6 +15,10 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 // init all web routes
 initWebRoute(app);
+// simple route
+app.get("/", (req, res) => {
+  res.json({ message: "Welcome to nodeJs chat messenger application." });
+});
 
 let port = process.env.PORT || 4000;
 
