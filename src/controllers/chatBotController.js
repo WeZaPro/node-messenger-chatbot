@@ -184,6 +184,7 @@ function handleMessage(sender_psid, message) {
       sender_psid,
       `The bot is needed more training, try to say "thanks a lot" or "hi" to the bot`
     );
+    callSendAPIWithTemplate(sender_psid);
   } else {
     if (entityChosen === "wit$greetings") {
       //send greetings message
