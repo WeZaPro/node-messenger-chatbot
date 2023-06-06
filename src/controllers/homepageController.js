@@ -1,7 +1,7 @@
 let getHomepage = (req, res) => {
-    return res.render("homepage.ejs");
+  return res.render("homepage.ejs");
 };
 
 module.exports = {
-    getHomepage: getHomepage
+  getHomepage: getHomepage,
 };
