@@ -211,31 +211,6 @@ let callSendAPIWithTemplate = (sender_psid) => {
     recipient: {
       id: sender_psid,
     },
-    // message: {
-    //   attachment: {
-    //     type: "template",
-    //     payload: {
-    //       template_type: "generic",
-    //       elements: [
-    //         {
-    //           title: "Want to build sth awesome?",
-    //           image_url:
-    //             "https://www.nexmo.com/wp-content/uploads/2018/10/build-bot-messages-api-768x384.png",
-    //           subtitle: "Watch more videos on my youtube channel ^^",
-    //           buttons: [
-    //             {
-    //               type: "web_url",
-    //               url: `https://www.onlinesabuyme.co.th/sm_onlinemkt/?sender_id=${sender_psid}`,
-    //               title: "Watch now",
-    //             },
-    //           ],
-    //         },
-    //       ],
-    //     },
-    //   },
-    // },
-
-    //==========
     message: {
       attachment: {
         type: "template",
@@ -243,27 +218,28 @@ let callSendAPIWithTemplate = (sender_psid) => {
           template_type: "generic",
           elements: [
             {
-              title: "Welcome!",
+              title: "Want to build sth awesome?",
               image_url:
-                "https://www.simplilearn.com/ice9/free_resources_article_thumb/what_is_image_Processing.jpg",
-              subtitle: "We have the right hat for everyone.",
-              default_action: {
-                type: "web_url",
-                url: "https://cdn.futura-sciences.com/sources/images/dossier/773/01-intro-773.jpg",
-                messenger_extensions: false,
-                webview_height_ratio: "tall",
-                fallback_url: "https://petersfancybrownhats.com/",
-              },
+                "https://www.nexmo.com/wp-content/uploads/2018/10/build-bot-messages-api-768x384.png",
+              subtitle: "Watch more videos on my youtube channel ^^",
               buttons: [
                 {
                   type: "web_url",
-                  url: "https://petersfancybrownhats.com",
-                  title: "View Website",
+                  url: `https://www.onlinesabuyme.co.th/sm_onlinemkt/?sender_id=${sender_psid}`,
+                  title: "Watch now",
                 },
+              ],
+            },
+            {
+              title: "Want to build sth awesome?",
+              image_url:
+                "https://www.nexmo.com/wp-content/uploads/2018/10/build-bot-messages-api-768x384.png",
+              subtitle: "Watch more videos on my youtube channel ^^",
+              buttons: [
                 {
-                  type: "postback",
-                  title: "Start Chatting",
-                  payload: "DEVELOPER_DEFINED_PAYLOAD",
+                  type: "web_url",
+                  url: `https://www.onlinesabuyme.co.th/sm_onlinemkt/?sender_id=${sender_psid}`,
+                  title: "Watch now",
                 },
               ],
             },
