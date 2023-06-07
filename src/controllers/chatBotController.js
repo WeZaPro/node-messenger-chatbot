@@ -148,6 +148,33 @@ function callSendAPI(sender_psid, response) {
     }
   );
 }
+//
+function callSendMessageManualAPI(sender_psid, response) {
+  // Construct the message body
+  let request_body = {
+    recipient: {
+      id: sender_psid,
+    },
+    message: { text: response },
+  };
+
+  // Send the HTTP request to the Messenger Platform
+  request(
+    {
+      uri: "https://graph.facebook.com/v7.0/me/messages",
+      qs: { access_token: process.env.FB_PAGE_TOKEN },
+      method: "POST",
+      json: request_body,
+    },
+    (err, res, body) => {
+      if (!err) {
+        console.log("message sent!");
+      } else {
+        console.error("Unable to send message:" + err);
+      }
+    }
+  );
+}
 
 // function firstTrait(nlp, name) {
 //     return nlp && nlp.entities && nlp.entities[name] && nlp.entities[name][0];
@@ -185,7 +212,7 @@ function handleMessage(sender_psid, message) {
       // `The bot is needed more training, try to say "thanks a lot" or "hi" to the bot`
       `กรุณา Chat ใน Mode Login`
     );
-    callSendAPIWithTemplate(sender_psid);
+    //callSendAPIWithTemplate(sender_psid);
   } else {
     if (entityChosen === "wit$greetings") {
       //send greetings message
@@ -202,6 +229,10 @@ function handleMessage(sender_psid, message) {
     if (entityChosen === "wit$bye") {
       //send bye message
       callSendAPI(sender_psid, "bye-bye!");
+    }
+    if (entityChosen === "message") {
+      //send bye message
+      callSendMessageManualAPI(sender_psid, "message");
     }
   }
 }
