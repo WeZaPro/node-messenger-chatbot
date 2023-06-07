@@ -182,7 +182,8 @@ function handleMessage(sender_psid, message) {
     //default
     callSendAPI(
       sender_psid,
-      `The bot is needed more training, try to say "thanks a lot" or "hi" to the bot`
+      // `The bot is needed more training, try to say "thanks a lot" or "hi" to the bot`
+      `กรุณา Chat ใน Mode Login`
     );
     callSendAPIWithTemplate(sender_psid);
   } else {
